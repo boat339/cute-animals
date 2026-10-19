@@ -1,0 +1,1003 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+  font-family:
+    -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ===== 动物区域 ===== */
+.animals-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 8px 4px;
+  max-width: 100%;
+}
+
+/* ===== 单个动物场景 ===== */
+.scene {
+  position: relative;
+  width: 90px;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scene.fish-scene {
+  width: 70px;
+  height: 80px;
+}
+
+/* 地面阴影 */
+.ground-shadow {
+  position: absolute;
+  bottom: 6px;
+  width: 50px;
+  height: 8px;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: shadowPulse 3s ease-in-out infinite;
+}
+@keyframes shadowPulse {
+  0%,
+  100% {
+    transform: scaleX(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scaleX(0.7);
+    opacity: 0.25;
+  }
+}
+
+/* ===== 通用容器 ===== */
+.pet-wrap {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 默认浮动 + 摇摆 */
+.pet-wrap.idle {
+  animation: idleFloat 3s ease-in-out infinite;
+}
+@keyframes idleFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+/* SVG 抖动 */
+.pet-svg.shake {
+  animation: svgShake 0.45s ease-in-out;
+}
+@keyframes svgShake {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+  12% {
+    transform: translateX(-5px) rotate(-7deg);
+  }
+  24% {
+    transform: translateX(5px) rotate(7deg);
+  }
+  36% {
+    transform: translateX(-4px) rotate(-5deg);
+  }
+  48% {
+    transform: translateX(4px) rotate(5deg);
+  }
+  60% {
+    transform: translateX(-2px) rotate(-3deg);
+  }
+  72% {
+    transform: translateX(2px) rotate(3deg);
+  }
+  84% {
+    transform: translateX(-1px) rotate(-1deg);
+  }
+}
+
+/* ===== 气泡 ===== */
+.bubble {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  background: #fff;
+  border-radius: 14px;
+  padding: 5px 10px;
+  font-size: 11px;
+  white-space: nowrap;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transition:
+    opacity 0.28s,
+    transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 10;
+  pointer-events: none;
+}
+.bubble.show {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+.bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+}
+
+/* 各动物气泡颜色 */
+.cat-wrap .bubble {
+  border: 2px solid #ffb74d;
+  color: #e65100;
+}
+.cat-wrap .bubble::after {
+  border-top-color: #ffb74d;
+}
+.dog-wrap .bubble {
+  border: 2px solid #8d6e63;
+  color: #5d4037;
+}
+.dog-wrap .bubble::after {
+  border-top-color: #8d6e63;
+}
+.goose-wrap .bubble {
+  border: 2px solid #78909c;
+  color: #455a64;
+}
+.goose-wrap .bubble::after {
+  border-top-color: #78909c;
+}
+.rabbit-wrap .bubble {
+  border: 2px solid #f48fb1;
+  color: #c2185b;
+}
+.rabbit-wrap .bubble::after {
+  border-top-color: #f48fb1;
+}
+.fox-wrap .bubble {
+  border: 2px solid #ff8a65;
+  color: #d84315;
+}
+.fox-wrap .bubble::after {
+  border-top-color: #ff8a65;
+}
+.pig-wrap .bubble {
+  border: 2px solid #f8bbd9;
+  color: #ad1457;
+}
+.pig-wrap .bubble::after {
+  border-top-color: #f8bbd9;
+}
+.wolf-wrap .bubble {
+  border: 2px solid #90a4ae;
+  color: #37474f;
+}
+.wolf-wrap .bubble::after {
+  border-top-color: #90a4ae;
+}
+.lion-wrap .bubble {
+  border: 2px solid #ffd54f;
+  color: #f57f17;
+}
+.lion-wrap .bubble::after {
+  border-top-color: #ffd54f;
+}
+.fish-wrap .bubble {
+  border: 2px solid #4fc3f7;
+  color: #0277bd;
+}
+.fish-wrap .bubble::after {
+  border-top-color: #4fc3f7;
+}
+
+/* ===== 粒子 ===== */
+.heart {
+  position: fixed;
+  pointer-events: none;
+  z-index: 100;
+  animation: heartUp 0.9s ease-out forwards;
+}
+@keyframes heartUp {
+  0% {
+    transform: translate(0, 0) scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(var(--hx), var(--hy)) scale(1.15);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(var(--hx2), var(--hy2)) scale(0.15);
+    opacity: 0;
+  }
+}
+
+.zzz {
+  position: absolute;
+  font-weight: 700;
+  color: #bdbdbd;
+  pointer-events: none;
+  animation: zzzUp 1.8s ease-out forwards;
+}
+@keyframes zzzUp {
+  0% {
+    transform: translate(0, 0) scale(0.4);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(25px, -40px) scale(1.15);
+    opacity: 0;
+  }
+}
+
+.bubble-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+  animation: bubbleRise 2s ease-out forwards;
+}
+@keyframes bubbleRise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-60px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* ===== 猫咪特殊动画 ===== */
+.cat-wrap.roll {
+  animation: rollAnim 0.9s ease-in-out !important;
+}
+@keyframes rollAnim {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.82);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.cat-wrap.head-tilt #catHead {
+  animation: tiltHead 2.2s ease-in-out;
+  transform-origin: 100px 70px;
+}
+@keyframes tiltHead {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  26% {
+    transform: rotate(15deg);
+  }
+  66% {
+    transform: rotate(15deg);
+  }
+}
+
+.cat-wrap.yawn #catYawnMouth {
+  animation: yawnOpen 2.6s ease-in-out;
+}
+.cat-wrap.yawn #catNormalMouth {
+  opacity: 0;
+}
+.cat-wrap.yawn .cat-eye {
+  animation: sleepyEyes 2.6s ease-in-out;
+}
+@keyframes yawnOpen {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  16% {
+    opacity: 1;
+    transform: scale(0.5);
+  }
+  36% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  56% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  76% {
+    opacity: 1;
+    transform: scale(0.4);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+@keyframes sleepyEyes {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  20% {
+    transform: scaleY(0.2);
+  }
+  58% {
+    transform: scaleY(0.2);
+  }
+}
+
+.cat-wrap.paw-wave #catRightPaw {
+  animation: wavePaw 2s ease-in-out;
+  transform-origin: 118px 172px;
+}
+@keyframes wavePaw {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  16% {
+    transform: rotate(-30deg);
+  }
+  32% {
+    transform: rotate(20deg);
+  }
+  48% {
+    transform: rotate(-24deg);
+  }
+  64% {
+    transform: rotate(14deg);
+  }
+  80% {
+    transform: rotate(-10deg);
+  }
+}
+
+/* ===== 小狗特殊动画 ===== */
+.dog-wrap.tail-wag #dogTail {
+  animation: tailWag 1.5s ease-in-out;
+  transform-origin: 165px 135px;
+}
+@keyframes tailWag {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(25deg);
+  }
+  30% {
+    transform: rotate(-25deg);
+  }
+  45% {
+    transform: rotate(30deg);
+  }
+  60% {
+    transform: rotate(-30deg);
+  }
+  75% {
+    transform: rotate(20deg);
+  }
+  90% {
+    transform: rotate(-15deg);
+  }
+}
+
+.dog-wrap.bark #dogMouth {
+  animation: dogBark 0.8s ease-in-out;
+}
+@keyframes dogBark {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  25% {
+    transform: scaleY(1.8);
+  }
+  50% {
+    transform: scaleY(1.5);
+  }
+  75% {
+    transform: scaleY(1.6);
+  }
+}
+
+.dog-wrap.head-tilt #dogHead {
+  animation: dogTiltHead 2s ease-in-out;
+  transform-origin: 100px 65px;
+}
+@keyframes dogTiltHead {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-18deg);
+  }
+  70% {
+    transform: rotate(-18deg);
+  }
+}
+
+.dog-wrap.roll {
+  animation: dogRoll 1s ease-in-out !important;
+}
+@keyframes dogRoll {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.85);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.dog-wrap.yawn #dogYawnMouth {
+  animation: yawnOpen 2.6s ease-in-out;
+}
+.dog-wrap.yawn #dogNormalMouth {
+  opacity: 0;
+}
+.dog-wrap.yawn .dog-eye {
+  animation: sleepyEyes 2.6s ease-in-out;
+}
+
+/* ===== 小鹅特殊动画 ===== */
+.goose-wrap.wing-flap #gooseWing {
+  animation: wingFlap 1.8s ease-in-out;
+  transform-origin: 45px 100px;
+}
+@keyframes wingFlap {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-35deg);
+  }
+  40% {
+    transform: rotate(25deg);
+  }
+  60% {
+    transform: rotate(-30deg);
+  }
+  80% {
+    transform: rotate(20deg);
+  }
+}
+
+.goose-wrap.waddle {
+  animation: gooseWaddle 2s ease-in-out !important;
+}
+@keyframes gooseWaddle {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+  25% {
+    transform: translateX(8px) rotate(3deg);
+  }
+  50% {
+    transform: translateX(0) rotate(0);
+  }
+  75% {
+    transform: translateX(-8px) rotate(-3deg);
+  }
+}
+
+.goose-wrap.head-tilt #gooseHead {
+  animation: gooseTiltHead 2s ease-in-out;
+  transform-origin: 100px 70px;
+}
+@keyframes gooseTiltHead {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(12deg);
+  }
+  70% {
+    transform: rotate(12deg);
+  }
+}
+
+.goose-wrap.quack #gooseBeak {
+  animation: gooseQuack 0.6s ease-in-out;
+}
+@keyframes gooseQuack {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  30% {
+    transform: scaleY(1.4);
+  }
+  60% {
+    transform: scaleY(1.2);
+  }
+}
+
+.goose-wrap.yawn .goose-eye {
+  animation: sleepyEyes 2.6s ease-in-out;
+}
+
+/* ===== 兔子特殊动画 ===== */
+.rabbit-wrap.ear-wiggle #rabbitLeftEar {
+  animation: earWiggleLeft 1.2s ease-in-out;
+  transform-origin: 75px 55px;
+}
+.rabbit-wrap.ear-wiggle #rabbitRightEar {
+  animation: earWiggleRight 1.2s ease-in-out;
+  transform-origin: 125px 55px;
+}
+@keyframes earWiggleLeft {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-8deg);
+  }
+}
+@keyframes earWiggleRight {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(8deg);
+  }
+}
+
+.rabbit-wrap.hop {
+  animation: rabbitHop 1s ease-in-out !important;
+}
+@keyframes rabbitHop {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-30px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  70% {
+    transform: translateY(-15px);
+  }
+  85% {
+    transform: translateY(0);
+  }
+}
+
+.rabbit-wrap.nose-wiggle #rabbitNose {
+  animation: noseWiggle 0.8s ease-in-out;
+}
+@keyframes noseWiggle {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.3);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+}
+
+.rabbit-wrap.yawn .rabbit-eye {
+  animation: sleepyEyes 2.6s ease-in-out;
+}
+
+/* ===== 狐狸特殊动画 ===== */
+.fox-wrap.tail-sway #foxTail {
+  animation: tailSway 2s ease-in-out;
+  transform-origin: 160px 130px;
+}
+@keyframes tailSway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(20deg);
+  }
+  40% {
+    transform: rotate(-15deg);
+  }
+  60% {
+    transform: rotate(25deg);
+  }
+  80% {
+    transform: rotate(-10deg);
+  }
+}
+
+.fox-wrap.pounce {
+  animation: foxPounce 1.2s ease-in-out !important;
+}
+@keyframes foxPounce {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  30% {
+    transform: translateY(-20px) scale(1.1);
+  }
+  50% {
+    transform: translateY(5px) scale(0.95);
+  }
+  70% {
+    transform: translateY(-10px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.fox-wrap.head-tilt #foxHead {
+  animation: foxTiltHead 2s ease-in-out;
+  transform-origin: 100px 70px;
+}
+@keyframes foxTiltHead {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-12deg);
+  }
+  70% {
+    transform: rotate(-12deg);
+  }
+}
+
+.fox-wrap.yawn .fox-eye {
+  animation: sleepyEyes 2.6s ease-in-out;
+}
+
+/* ===== 小猪特殊动画 ===== */
+.pig-wrap.tail-curl #pigTail {
+  animation: tailCurl 1.5s ease-in-out;
+  transform-origin: 155px 125px;
+}
+@keyframes tailCurl {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(25deg);
+  }
+}
+
+.pig-wrap.oink #pigNose {
+  animation: oinkNose 0.6s ease-in-out;
+}
+@keyframes oinkNose {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.4);
+  }
+  60% {
+    transform: scale(1.2);
+  }
+}
+
+.pig-wrap.wiggle {
+  animation: pigWiggle 1.5s ease-in-out !important;
+}
+@keyframes pigWiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-5deg);
+  }
+  40% {
+    transform: rotate(5deg);
+  }
+  60% {
+    transform: rotate(-4deg);
+  }
+  80% {
+    transform: rotate(4deg);
+  }
+}
+
+.pig-wrap.yawn .pig-eye {
+  animation: sleepyEyes 2.6s ease-in-out;
+}
+
+/* ===== 小狼特殊动画 ===== */
+.wolf-wrap.howl #wolfHead {
+  animation: wolfHowl 2s ease-in-out;
+  transform-origin: 100px 80px;
+}
+@keyframes wolfHowl {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-25deg);
+  }
+  70% {
+    transform: rotate(-25deg);
+  }
+}
+
+.wolf-wrap.howl #wolfMouth {
+  animation: howlMouth 2s ease-in-out;
+}
+@keyframes howlMouth {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  30% {
+    transform: scaleY(2);
+  }
+  70% {
+    transform: scaleY(2);
+  }
+}
+
+.wolf-wrap.tail-wag #wolfTail {
+  animation: wolfTailWag 1.5s ease-in-out;
+  transform-origin: 165px 130px;
+}
+@keyframes wolfTailWag {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+}
+
+.wolf-wrap.yawn .wolf-eye {
+  animation: sleepyEyes 2.6s ease-in-out;
+}
+
+/* ===== 小狮子特殊动画 ===== */
+.lion-wrap.roar #lionHead {
+  animation: lionRoar 1.5s ease-in-out;
+  transform-origin: 100px 75px;
+}
+@keyframes lionRoar {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.15);
+  }
+  40% {
+    transform: scale(1.05);
+  }
+  60% {
+    transform: scale(1.12);
+  }
+  80% {
+    transform: scale(1.02);
+  }
+}
+
+.lion-wrap.roar #lionMouth {
+  animation: roarMouth 1.5s ease-in-out;
+}
+@keyframes roarMouth {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  20% {
+    transform: scaleY(2.2);
+  }
+  40% {
+    transform: scaleY(1.8);
+  }
+  60% {
+    transform: scaleY(2);
+  }
+  80% {
+    transform: scaleY(1.5);
+  }
+}
+
+.lion-wrap.mane-shake #lionMane {
+  animation: maneShake 1.8s ease-in-out;
+  transform-origin: 100px 70px;
+}
+@keyframes maneShake {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(8deg);
+  }
+  30% {
+    transform: rotate(-8deg);
+  }
+  45% {
+    transform: rotate(6deg);
+  }
+  60% {
+    transform: rotate(-6deg);
+  }
+  75% {
+    transform: rotate(4deg);
+  }
+  90% {
+    transform: rotate(-2deg);
+  }
+}
+
+.lion-wrap.yawn .lion-eye {
+  animation: sleepyEyes 2.6s ease-in-out;
+}
+
+/* ===== 小鱼特殊动画 ===== */
+.fish-wrap.swim-left {
+  animation: fishSwimLeft 3s linear infinite;
+}
+@keyframes fishSwimLeft {
+  0% {
+    transform: translateX(0) scaleX(1);
+  }
+  49% {
+    transform: translateX(-20px) scaleX(1);
+  }
+  50% {
+    transform: translateX(-20px) scaleX(-1);
+  }
+  99% {
+    transform: translateX(0) scaleX(-1);
+  }
+  100% {
+    transform: translateX(0) scaleX(1);
+  }
+}
+
+.fish-wrap.tail-swim .fish-tail {
+  animation: tailSwim 0.8s ease-in-out infinite;
+  transform-origin: 25px 50px;
+}
+@keyframes tailSwim {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(25deg);
+  }
+}
+
+.fish-wrap.bubble-blow {
+  animation: fishBob 2s ease-in-out;
+}
+@keyframes fishBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.fish-wrap.bubble-blow::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 45px;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  animation: bubblePop 1.5s ease-out forwards;
+}
+@keyframes bubblePop {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-40px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

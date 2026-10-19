@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cute Animals · 可爱动物园</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <!-- ===== 陆地动物区域 ===== -->
+    <div class="animals-row">
+      <!-- 小猫 -->
+      <div class="scene">
+        <div class="ground-shadow"></div>
+        <div class="pet-wrap cat-wrap idle" id="catWrap" data-type="cat">
+          <div class="bubble" id="catBubble"></div>
+          <svg
+            class="pet-svg"
+            id="catSvg"
+            viewBox="0 0 200 200"
+            width="85"
+            height="85"
+          >
+            <path
+              d="M132 148 Q160 130 163 106 Q164 90 157 96"
+              stroke="#FFB74D"
+              stroke-width="9"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <ellipse cx="100" cy="142" rx="38" ry="42" fill="#FFB74D" />
+            <ellipse cx="100" cy="150" rx="24" ry="28" fill="#FFF3E0" />
+            <ellipse cx="78" cy="180" rx="14" ry="9" fill="#FFB74D" />
+            <ellipse cx="78" cy="182" rx="10" ry="5" fill="#FFF3E0" />
+            <g id="catRightPaw">
+              <ellipse cx="122" cy="180" rx="14" ry="9" fill="#FFB74D" />
+              <ellipse cx="122" cy="182" rx="10" ry="5" fill="#FFF3E0" />
+            </g>
+            <g id="catHead">
+              <circle cx="100" cy="78" r="38" fill="#FFB74D" />
+              <polygon points="68,52 52,12 92,45" fill="#FFB74D" />
+              <polygon points="70,48 58,20 88,44" fill="#FFCDD2" />
+              <polygon points="132,52 148,12 108,45" fill="#FFB74D" />
+              <polygon points="130,48 142,20 112,44" fill="#FFCDD2" />
+              <g class="cat-eye" style="transform-origin: 84px 76px">
+                <ellipse cx="84" cy="76" rx="10" ry="11" fill="#fff" />
+                <ellipse cx="86" cy="77" rx="7" ry="8" fill="#5D4037" />
+                <circle cx="89" cy="73" r="3" fill="#fff" />
+              </g>
+              <g class="cat-eye" style="transform-origin: 116px 76px">
+                <ellipse cx="116" cy="76" rx="10" ry="11" fill="#fff" />
+                <ellipse cx="114" cy="77" rx="7" ry="8" fill="#5D4037" />
+                <circle cx="117" cy="73" r="3" fill="#fff" />
+              </g>
+              <path d="M96 91 L100 96 L104 91Z" fill="#EF9A9A" />
+              <g id="catNormalMouth">
+                <path
+                  d="M100 96 Q93 103 87 100"
+                  stroke="#8D6E63"
+                  stroke-width="1.5"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M100 96 Q107 103 113 100"
+                  stroke="#8D6E63"
+                  stroke-width="1.5"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+              </g>
+              <ellipse
+                id="catYawnMouth"
+                cx="100"
+                cy="100"
+                rx="9"
+                ry="12"
+                fill="#EF9A9A"
+                opacity="0"
+              />
+              <circle cx="68" cy="92" r="8" fill="#FFCDD2" opacity=".45" />
+              <circle cx="132" cy="92" r="8" fill="#FFCDD2" opacity=".45" />
+            </g>
+            <path
+              d="M72 110 Q100 120 128 110"
+              stroke="#E53935"
+              stroke-width="4.5"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <circle cx="100" cy="117" r="5.5" fill="#FFD54F" />
+            <circle cx="100" cy="117" r="2.5" fill="#FFC107" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- 小狗 -->
+      <div class="scene">
+        <div class="ground-shadow"></div>
+        <div class="pet-wrap dog-wrap idle" id="dogWrap" data-type="dog">
+          <div class="bubble" id="dogBubble"></div>
+          <svg
+            class="pet-svg"
+            id="dogSvg"
+            viewBox="0 0 200 200"
+            width="85"
+            height="85"
+          >
+            <g id="dogTail">
+              <path
+                d="M165 135 Q185 115 190 85"
+                stroke="#8D6E63"
+                stroke-width="12"
+                fill="none"
+                stroke-linecap="round"
+              />
+            </g>
+            <ellipse cx="100" cy="140" rx="42" ry="38" fill="#A1887F" />
+            <ellipse cx="100" cy="148" rx="26" ry="22" fill="#D7CCC8" />
+            <ellipse cx="70" cy="175" rx="16" ry="12" fill="#A1887F" />
+            <ellipse cx="130" cy="175" rx="16" ry="12" fill="#A1887F" />
+            <ellipse cx="80" cy="178" rx="14" ry="10" fill="#A1887F" />
+            <ellipse cx="120" cy="178" rx="14" ry="10" fill="#A1887F" />
+            <g id="dogHead">
+              <ellipse cx="100" cy="75" rx="40" ry="35" fill="#A1887F" />
+              <ellipse
+                cx="60"
+                cy="70"
+                rx="18"
+                ry="32"
+                fill="#8D6E63"
+                transform="rotate(-15,60,70)"
+              />
+              <ellipse
+                cx="140"
+                cy="70"
+                rx="18"
+                ry="32"
+                fill="#8D6E63"
+                transform="rotate(15,140,70)"
+              />
+              <ellipse
+                cx="62"
+                cy="72"
+                rx="12"
+                ry="22"
+                fill="#BCAAA4"
+                transform="rotate(-15,62,72)"
+              />
+              <ellipse
+                cx="138"
+                cy="72"
+                rx="12"
+                ry="22"
+                fill="#BCAAA4"
+                transform="rotate(15,138,72)"
+              />
+              <ellipse cx="100" cy="85" rx="28" ry="22" fill="#D7CCC8" />
+              <g class="dog-eye" style="transform-origin: 80px 72px">
+                <circle cx="80" cy="72" r="10" fill="#fff" />
+                <circle cx="82" cy="74" r="7" fill="#4E342E" />
+                <circle cx="85" cy="70" r="3" fill="#fff" />
+              </g>
+              <g class="dog-eye" style="transform-origin: 120px 72px">
+                <circle cx="120" cy="72" r="10" fill="#fff" />
+                <circle cx="118" cy="74" r="7" fill="#4E342E" />
+                <circle cx="115" cy="70" r="3" fill="#fff" />
+              </g>
+              <ellipse cx="100" cy="90" rx="12" ry="8" fill="#4E342E" />
+              <ellipse
+                cx="100"
+                cy="88"
+                rx="4"
+                ry="2"
+                fill="#5D4037"
+                opacity=".5"
+              />
+              <g id="dogNormalMouth">
+                <path
+                  d="M88 98 Q100 108 112 98"
+                  stroke="#4E342E"
+                  stroke-width="2"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+                <ellipse cx="100" cy="105" rx="8" ry="6" fill="#BCAAA4" />
+              </g>
+              <ellipse
+                id="dogYawnMouth"
+                cx="100"
+                cy="102"
+                rx="10"
+                ry="14"
+                fill="#BCAAA4"
+                opacity="0"
+              />
+              <circle cx="65" cy="88" r="6" fill="#FFCDD2" opacity=".4" />
+              <circle cx="135" cy="88" r="6" fill="#FFCDD2" opacity=".4" />
+            </g>
+            <path
+              d="M68 108 Q100 118 132 108"
+              stroke="#D32F2F"
+              stroke-width="5"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <circle cx="100" cy="115" r="6" fill="#FFD54F" />
+            <circle cx="100" cy="115" r="3" fill="#FFC107" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- 小鹅 -->
+      <div class="scene">
+        <div class="ground-shadow"></div>
+        <div class="pet-wrap goose-wrap idle" id="gooseWrap" data-type="goose">
+          <div class="bubble" id="gooseBubble"></div>
+          <svg
+            class="pet-svg"
+            id="gooseSvg"
+            viewBox="0 0 200 200"
+            width="85"
+            height="85"
+          >
+            <g id="gooseWing">
+              <ellipse cx="55" cy="115" rx="25" ry="35" fill="#E0E0E0" />
+              <ellipse cx="55" cy="115" rx="18" ry="28" fill="#F5F5F5" />
+            </g>
+            <ellipse cx="100" cy="130" rx="45" ry="40" fill="#FAFAFA" />
+            <path
+              d="M60 120 Q80 115 100 118 Q120 115 140 120"
+              stroke="#E0E0E0"
+              stroke-width="2"
+              fill="none"
+            />
+            <path
+              d="M65 130 Q85 125 100 128 Q115 125 135 130"
+              stroke="#E0E0E0"
+              stroke-width="2"
+              fill="none"
+            />
+            <ellipse cx="150" cy="125" rx="12" ry="18" fill="#E0E0E0" />
+            <ellipse cx="155" cy="120" rx="8" ry="14" fill="#F5F5F5" />
+            <rect x="80" y="168" width="8" height="20" fill="#FF8A65" rx="2" />
+            <rect x="112" y="168" width="8" height="20" fill="#FF8A65" rx="2" />
+            <ellipse cx="84" cy="188" rx="14" ry="6" fill="#FF8A65" />
+            <ellipse cx="116" cy="188" rx="14" ry="6" fill="#FF8A65" />
+            <g id="gooseHead">
+              <ellipse cx="100" cy="70" rx="30" ry="28" fill="#FAFAFA" />
+              <g class="goose-eye" style="transform-origin: 88px 65px">
+                <circle cx="88" cy="65" r="8" fill="#fff" />
+                <circle cx="90" cy="66" r="5" fill="#37474F" />
+                <circle cx="92" cy="63" r="2" fill="#fff" />
+              </g>
+              <g class="goose-eye" style="transform-origin: 112px 65px">
+                <circle cx="112" cy="65" r="8" fill="#fff" />
+                <circle cx="110" cy="66" r="5" fill="#37474F" />
+                <circle cx="108" cy="63" r="2" fill="#fff" />
+              </g>
+              <g id="gooseBeak">
+                <ellipse cx="100" cy="82" rx="18" ry="8" fill="#FF8A65" />
+                <ellipse cx="100" cy="80" rx="14" ry="5" fill="#FFAB91" />
+                <line
+                  x1="82"
+                  y1="82"
+                  x2="118"
+                  y2="82"
+                  stroke="#E64A19"
+                  stroke-width="1"
+                />
+              </g>
+              <path
+                d="M85 95 Q100 85 115 95"
+                stroke="#FAFAFA"
+                stroke-width="20"
+                fill="none"
+              />
+              <ellipse cx="100" cy="45" rx="8" ry="6" fill="#E0E0E0" />
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 兔子 -->
+      <div class="scene">
+        <div class="ground-shadow"></div>
+        <div
+          class="pet-wrap rabbit-wrap idle"
+          id="rabbitWrap"
+          data-type="rabbit"
+        >
+          <div class="bubble" id="rabbitBubble"></div>
+          <svg
+            class="pet-svg"
+            id="rabbitSvg"
+            viewBox="0 0 200 200"
+            width="85"
+            height="85"
+          >
+            <ellipse cx="100" cy="145" rx="35" ry="30" fill="#F8BBD9" />
+            <ellipse cx="100" cy="152" rx="22" ry="18" fill="#FCE4EC" />
+            <ellipse cx="75" cy="175" rx="12" ry="8" fill="#F8BBD9" />
+            <ellipse cx="125" cy="175" rx="12" ry="8" fill="#F8BBD9" />
+            <ellipse cx="85" cy="178" rx="10" ry="7" fill="#F8BBD9" />
+            <ellipse cx="115" cy="178" rx="10" ry="7" fill="#F8BBD9" />
+            <g id="rabbitLeftEar">
+              <ellipse cx="75" cy="55" rx="14" ry="45" fill="#F8BBD9" />
+              <ellipse cx="75" cy="55" rx="9" ry="35" fill="#FCE4EC" />
+            </g>
+            <g id="rabbitRightEar">
+              <ellipse cx="125" cy="55" rx="14" ry="45" fill="#F8BBD9" />
+              <ellipse cx="125" cy="55" rx="9" ry="35" fill="#FCE4EC" />
+            </g>
+            <g id="rabbitHead">
+              <ellipse cx="100" cy="95" rx="38" ry="32" fill="#F8BBD9" />
+              <g class="rabbit-eye" style="transform-origin: 82px 88px">
+                <circle cx="82" cy="88" r="9" fill="#fff" />
+                <circle cx="84" cy="89" r="6" fill="#4A148C" />
+                <circle cx="86" cy="86" r="2.5" fill="#fff" />
+              </g>
+              <g class="rabbit-eye" style="transform-origin: 118px 88px">
+                <circle cx="118" cy="88" r="9" fill="#fff" />
+                <circle cx="116" cy="89" r="6" fill="#4A148C" />
+                <circle cx="114" cy="86" r="2.5" fill="#fff" />
+              </g>
+              <ellipse
+                id="rabbitNose"
+                cx="100"
+                cy="102"
+                rx="6"
+                ry="4"
+                fill="#E91E63"
+              />
+              <path
+                d="M100 106 Q92 112 88 108"
+                stroke="#E91E63"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <path
+                d="M100 106 Q108 112 112 108"
+                stroke="#E91E63"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <circle cx="70" cy="100" r="7" fill="#F48FB1" opacity=".5" />
+              <circle cx="130" cy="100" r="7" fill="#F48FB1" opacity=".5" />
+            </g>
+            <circle cx="100" cy="125" r="4" fill="#FFD54F" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- 狐狸 -->
+      <div class="scene">
+        <div class="ground-shadow"></div>
+        <div class="pet-wrap fox-wrap idle" id="foxWrap" data-type="fox">
+          <div class="bubble" id="foxBubble"></div>
+          <svg
+            class="pet-svg"
+            id="foxSvg"
+            viewBox="0 0 200 200"
+            width="85"
+            height="85"
+          >
+            <ellipse cx="100" cy="145" rx="38" ry="32" fill="#FF7043" />
+            <ellipse cx="100" cy="152" rx="24" ry="20" fill="#FFCCBC" />
+            <ellipse cx="72" cy="175" rx="13" ry="9" fill="#FF7043" />
+            <ellipse cx="128" cy="175" rx="13" ry="9" fill="#FF7043" />
+            <ellipse cx="82" cy="178" rx="11" ry="8" fill="#FF7043" />
+            <ellipse cx="118" cy="178" rx="11" ry="8" fill="#FF7043" />
+            <g id="foxTail">
+              <ellipse
+                cx="160"
+                cy="130"
+                rx="35"
+                ry="20"
+                fill="#FF7043"
+                transform="rotate(-20,160,130)"
+              />
+              <ellipse
+                cx="165"
+                cy="128"
+                rx="25"
+                ry="14"
+                fill="#FFF3E0"
+                transform="rotate(-20,165,128)"
+              />
+              <ellipse
+                cx="170"
+                cy="125"
+                rx="15"
+                ry="8"
+                fill="#FFF"
+                transform="rotate(-20,170,125)"
+              />
+            </g>
+            <g id="foxHead">
+              <polygon points="65,45 85,85 55,80" fill="#FF7043" />
+              <polygon points="135,45 115,85 145,80" fill="#FF7043" />
+              <ellipse cx="100" cy="85" rx="35" ry="30" fill="#FF7043" />
+              <ellipse cx="100" cy="95" rx="20" ry="15" fill="#FFCCBC" />
+              <g class="fox-eye" style="transform-origin: 82px 78px">
+                <ellipse cx="82" cy="78" rx="8" ry="9" fill="#fff" />
+                <ellipse cx="84" cy="79" r="5" fill="#3E2723" />
+                <circle cx="86" cy="76" r="2" fill="#fff" />
+              </g>
+              <g class="fox-eye" style="transform-origin: 118px 78px">
+                <ellipse cx="118" cy="78" rx="8" ry="9" fill="#fff" />
+                <ellipse cx="116" cy="79" r="5" fill="#3E2723" />
+                <circle cx="114" cy="76" r="2" fill="#fff" />
+              </g>
+              <ellipse cx="100" cy="92" rx="8" ry="6" fill="#3E2723" />
+              <path
+                d="M100 98 Q92 105 88 102"
+                stroke="#3E2723"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <path
+                d="M100 98 Q108 105 112 102"
+                stroke="#3E2723"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 小猪 -->
+      <div class="scene">
+        <div class="ground-shadow"></div>
+        <div class="pet-wrap pig-wrap idle" id="pigWrap" data-type="pig">
+          <div class="bubble" id="pigBubble"></div>
+          <svg
+            class="pet-svg"
+            id="pigSvg"
+            viewBox="0 0 200 200"
+            width="85"
+            height="85"
+          >
+            <ellipse cx="100" cy="148" rx="42" ry="35" fill="#F8BBD9" />
+            <ellipse cx="100" cy="155" rx="26" ry="22" fill="#FCE4EC" />
+            <ellipse cx="70" cy="180" rx="14" ry="10" fill="#F8BBD9" />
+            <ellipse cx="130" cy="180" rx="14" ry="10" fill="#F8BBD9" />
+            <ellipse cx="82" cy="183" rx="11" ry="8" fill="#F8BBD9" />
+            <ellipse cx="118" cy="183" rx="11" ry="8" fill="#F8BBD9" />
+            <g id="pigTail">
+              <path
+                d="M155 125 Q170 115 165 130 Q160 140 170 135"
+                stroke="#F48FB1"
+                stroke-width="5"
+                fill="none"
+                stroke-linecap="round"
+              />
+            </g>
+            <g id="pigHead">
+              <ellipse cx="100" cy="88" rx="40" ry="35" fill="#F8BBD9" />
+              <g class="pig-eye" style="transform-origin: 78px 80px">
+                <circle cx="78" cy="80" r="9" fill="#fff" />
+                <circle cx="80" cy="81" r="6" fill="#4A148C" />
+                <circle cx="82" cy="78" r="2.5" fill="#fff" />
+              </g>
+              <g class="pig-eye" style="transform-origin: 122px 80px">
+                <circle cx="122" cy="80" r="9" fill="#fff" />
+                <circle cx="120" cy="81" r="6" fill="#4A148C" />
+                <circle cx="118" cy="78" r="2.5" fill="#fff" />
+              </g>
+              <ellipse
+                id="pigNose"
+                cx="100"
+                cy="98"
+                rx="16"
+                ry="12"
+                fill="#F48FB1"
+              />
+              <ellipse cx="95" cy="96" rx="4" ry="5" fill="#C2185B" />
+              <ellipse cx="105" cy="96" rx="4" ry="5" fill="#C2185B" />
+              <ellipse cx="95" cy="94" rx="1.5" ry="2" fill="#F8BBD9" />
+              <ellipse cx="105" cy="94" rx="1.5" ry="2" fill="#F8BBD9" />
+              <circle cx="65" cy="95" r="7" fill="#F48FB1" opacity=".4" />
+              <circle cx="135" cy="95" r="7" fill="#F48FB1" opacity=".4" />
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 小狼 -->
+      <div class="scene">
+        <div class="ground-shadow"></div>
+        <div class="pet-wrap wolf-wrap idle" id="wolfWrap" data-type="wolf">
+          <div class="bubble" id="wolfBubble"></div>
+          <svg
+            class="pet-svg"
+            id="wolfSvg"
+            viewBox="0 0 200 200"
+            width="85"
+            height="85"
+          >
+            <ellipse cx="100" cy="145" rx="38" ry="32" fill="#90A4AE" />
+            <ellipse cx="100" cy="152" rx="24" ry="20" fill="#CFD8DC" />
+            <ellipse cx="72" cy="175" rx="13" ry="9" fill="#90A4AE" />
+            <ellipse cx="128" cy="175" rx="13" ry="9" fill="#90A4AE" />
+            <ellipse cx="82" cy="178" rx="11" ry="8" fill="#90A4AE" />
+            <ellipse cx="118" cy="178" rx="11" ry="8" fill="#90A4AE" />
+            <g id="wolfTail">
+              <ellipse
+                cx="165"
+                cy="130"
+                rx="30"
+                ry="15"
+                fill="#90A4AE"
+                transform="rotate(-15,165,130)"
+              />
+              <ellipse
+                cx="168"
+                cy="128"
+                rx="20"
+                ry="10"
+                fill="#CFD8DC"
+                transform="rotate(-15,168,128)"
+              />
+            </g>
+            <g id="wolfHead">
+              <polygon points="60,40 80,75 55,70" fill="#90A4AE" />
+              <polygon points="140,40 120,75 145,70" fill="#90A4AE" />
+              <polygon points="65,45 75,70 62,65" fill="#CFD8DC" />
+              <polygon points="135,45 125,70 138,65" fill="#CFD8DC" />
+              <ellipse cx="100" cy="85" rx="36" ry="32" fill="#90A4AE" />
+              <ellipse cx="100" cy="92" rx="18" ry="14" fill="#CFD8DC" />
+              <g class="wolf-eye" style="transform-origin: 80px 78px">
+                <ellipse cx="80" cy="78" rx="8" ry="9" fill="#FFEB3B" />
+                <ellipse cx="82" cy="79" r="5" fill="#212121" />
+                <circle cx="84" cy="76" r="2" fill="#fff" />
+              </g>
+              <g class="wolf-eye" style="transform-origin: 120px 78px">
+                <ellipse cx="120" cy="78" rx="8" ry="9" fill="#FFEB3B" />
+                <ellipse cx="118" cy="79" r="5" fill="#212121" />
+                <circle cx="116" cy="76" r="2" fill="#fff" />
+              </g>
+              <ellipse cx="100" cy="95" rx="10" ry="7" fill="#37474F" />
+              <g id="wolfMouth">
+                <path
+                  d="M90 102 Q100 108 110 102"
+                  stroke="#37474F"
+                  stroke-width="2"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+                <ellipse cx="100" cy="108" rx="6" ry="4" fill="#37474F" />
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 小狮子 -->
+      <div class="scene">
+        <div class="ground-shadow"></div>
+        <div class="pet-wrap lion-wrap idle" id="lionWrap" data-type="lion">
+          <div class="bubble" id="lionBubble"></div>
+          <svg
+            class="pet-svg"
+            id="lionSvg"
+            viewBox="0 0 200 200"
+            width="85"
+            height="85"
+          >
+            <ellipse cx="100" cy="148" rx="40" ry="34" fill="#FFB74D" />
+            <ellipse cx="100" cy="155" rx="25" ry="21" fill="#FFF3E0" />
+            <ellipse cx="70" cy="180" rx="14" ry="10" fill="#FFB74D" />
+            <ellipse cx="130" cy="180" rx="14" ry="10" fill="#FFB74D" />
+            <ellipse cx="82" cy="183" rx="11" ry="8" fill="#FFB74D" />
+            <ellipse cx="118" cy="183" rx="11" ry="8" fill="#FFB74D" />
+            <g id="lionTail">
+              <path
+                d="M155 140 Q175 120 180 100"
+                stroke="#FFB74D"
+                stroke-width="10"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <ellipse cx="182" cy="95" rx="10" ry="8" fill="#8D6E63" />
+            </g>
+            <g id="lionMane">
+              <ellipse cx="70" cy="65" rx="15" ry="20" fill="#8D6E63" />
+              <ellipse cx="130" cy="65" rx="15" ry="20" fill="#8D6E63" />
+              <ellipse cx="60" cy="85" rx="12" ry="18" fill="#8D6E63" />
+              <ellipse cx="140" cy="85" rx="12" ry="18" fill="#8D6E63" />
+              <ellipse cx="65" cy="105" rx="10" ry="15" fill="#8D6E63" />
+              <ellipse cx="135" cy="105" rx="10" ry="15" fill="#8D6E63" />
+              <ellipse cx="100" cy="55" rx="20" ry="15" fill="#8D6E63" />
+              <ellipse cx="100" cy="115" rx="18" ry="12" fill="#8D6E63" />
+            </g>
+            <g id="lionHead">
+              <ellipse cx="100" cy="80" rx="32" ry="28" fill="#FFB74D" />
+              <g class="lion-eye" style="transform-origin: 85px 75px">
+                <circle cx="85" cy="75" r="8" fill="#fff" />
+                <circle cx="87" cy="76" r="5" fill="#3E2723" />
+                <circle cx="89" cy="73" r="2" fill="#fff" />
+              </g>
+              <g class="lion-eye" style="transform-origin: 115px 75px">
+                <circle cx="115" cy="75" r="8" fill="#fff" />
+                <circle cx="113" cy="76" r="5" fill="#3E2723" />
+                <circle cx="111" cy="73" r="2" fill="#fff" />
+              </g>
+              <ellipse cx="100" cy="88" rx="9" ry="6" fill="#8D6E63" />
+              <g id="lionMouth">
+                <path
+                  d="M90 95 Q100 102 110 95"
+                  stroke="#3E2723"
+                  stroke-width="2"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+                <ellipse cx="100" cy="100" rx="5" ry="4" fill="#3E2723" />
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 小鱼区域 ===== -->
+    <div class="animals-row fish-row">
+      <!-- 红色小鱼 -->
+      <div class="scene fish-scene">
+        <div
+          class="pet-wrap fish-wrap idle swim-left tail-swim"
+          id="fish1Wrap"
+          data-type="fish"
+          data-color="red"
+        >
+          <div class="bubble" id="fish1Bubble"></div>
+          <svg
+            class="pet-svg"
+            id="fish1Svg"
+            viewBox="0 0 100 100"
+            width="60"
+            height="60"
+          >
+            <ellipse cx="55" cy="50" rx="28" ry="18" fill="#FF5252" />
+            <ellipse cx="55" cy="50" rx="20" ry="12" fill="#FF8A80" />
+            <g class="fish-tail">
+              <polygon points="25,50 5,35 5,65" fill="#FF5252" />
+            </g>
+            <polygon points="35,40 45,35 40,45" fill="#FF1744" />
+            <polygon points="35,60 45,65 40,55" fill="#FF1744" />
+            <circle cx="75" cy="45" r="5" fill="#fff" />
+            <circle cx="76" cy="45" r="3" fill="#000" />
+            <circle cx="77" cy="43" r="1.5" fill="#fff" />
+            <path
+              d="M82 52 Q88 55 82 58"
+              stroke="#B71C1C"
+              stroke-width="2"
+              fill="none"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- 橙色小鱼 -->
+      <div class="scene fish-scene">
+        <div
+          class="pet-wrap fish-wrap idle swim-left tail-swim"
+          id="fish2Wrap"
+          data-type="fish"
+          data-color="orange"
+        >
+          <div class="bubble" id="fish2Bubble"></div>
+          <svg
+            class="pet-svg"
+            id="fish2Svg"
+            viewBox="0 0 100 100"
+            width="60"
+            height="60"
+          >
+            <ellipse cx="55" cy="50" rx="28" ry="18" fill="#FF9800" />
+            <ellipse cx="55" cy="50" rx="20" ry="12" fill="#FFCC80" />
+            <g class="fish-tail">
+              <polygon points="25,50 5,35 5,65" fill="#FF9800" />
+            </g>
+            <polygon points="35,40 45,35 40,45" fill="#F57C00" />
+            <polygon points="35,60 45,65 40,55" fill="#F57C00" />
+            <circle cx="75" cy="45" r="5" fill="#fff" />
+            <circle cx="76" cy="45" r="3" fill="#000" />
+            <circle cx="77" cy="43" r="1.5" fill="#fff" />
+            <path
+              d="M82 52 Q88 55 82 58"
+              stroke="#E65100"
+              stroke-width="2"
+              fill="none"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- 黄色小鱼 -->
+      <div class="scene fish-scene">
+        <div
+          class="pet-wrap fish-wrap idle swim-left tail-swim"
+          id="fish3Wrap"
+          data-type="fish"
+          data-color="yellow"
+        >
+          <div class="bubble" id="fish3Bubble"></div>
+          <svg
+            class="pet-svg"
+            id="fish3Svg"
+            viewBox="0 0 100 100"
+            width="60"
+            height="60"
+          >
+            <ellipse cx="55" cy="50" rx="28" ry="18" fill="#FFEB3B" />
+            <ellipse cx="55" cy="50" rx="20" ry="12" fill="#FFF59D" />
+            <g class="fish-tail">
+              <polygon points="25,50 5,35 5,65" fill="#FFEB3B" />
+            </g>
+            <polygon points="35,40 45,35 40,45" fill="#FBC02D" />
+            <polygon points="35,60 45,65 40,55" fill="#FBC02D" />
+            <circle cx="75" cy="45" r="5" fill="#fff" />
+            <circle cx="76" cy="45" r="3" fill="#000" />
+            <circle cx="77" cy="43" r="1.5" fill="#fff" />
+            <path
+              d="M82 52 Q88 55 82 58"
+              stroke="#F57F17"
+              stroke-width="2"
+              fill="none"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- 绿色小鱼 -->
+      <div class="scene fish-scene">
+        <div
+          class="pet-wrap fish-wrap idle swim-left tail-swim"
+          id="fish4Wrap"
+          data-type="fish"
+          data-color="green"
+        >
+          <div class="bubble" id="fish4Bubble"></div>
+          <svg
+            class="pet-svg"
+            id="fish4Svg"
+            viewBox="0 0 100 100"
+            width="60"
+            height="60"
+          >
+            <ellipse cx="55" cy="50" rx="28" ry="18" fill="#4CAF50" />
+            <ellipse cx="55" cy="50" rx="20" ry="12" fill="#A5D6A7" />
+            <g class="fish-tail">
+              <polygon points="25,50 5,35 5,65" fill="#4CAF50" />
+            </g>
+            <polygon points="35,40 45,35 40,45" fill="#2E7D32" />
+            <polygon points="35,60 45,65 40,55" fill="#2E7D32" />
+            <circle cx="75" cy="45" r="5" fill="#fff" />
+            <circle cx="76" cy="45" r="3" fill="#000" />
+            <circle cx="77" cy="43" r="1.5" fill="#fff" />
+            <path
+              d="M82 52 Q88 55 82 58"
+              stroke="#1B5E20"
+              stroke-width="2"
+              fill="none"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- 蓝色小鱼 -->
+      <div class="scene fish-scene">
+        <div
+          class="pet-wrap fish-wrap idle swim-left tail-swim"
+          id="fish5Wrap"
+          data-type="fish"
+          data-color="blue"
+        >
+          <div class="bubble" id="fish5Bubble"></div>
+          <svg
+            class="pet-svg"
+            id="fish5Svg"
+            viewBox="0 0 100 100"
+            width="60"
+            height="60"
+          >
+            <ellipse cx="55" cy="50" rx="28" ry="18" fill="#2196F3" />
+            <ellipse cx="55" cy="50" rx="20" ry="12" fill="#90CAF9" />
+            <g class="fish-tail">
+              <polygon points="25,50 5,35 5,65" fill="#2196F3" />
+            </g>
+            <polygon points="35,40 45,35 40,45" fill="#1565C0" />
+            <polygon points="35,60 45,65 40,55" fill="#1565C0" />
+            <circle cx="75" cy="45" r="5" fill="#fff" />
+            <circle cx="76" cy="45" r="3" fill="#000" />
+            <circle cx="77" cy="43" r="1.5" fill="#fff" />
+            <path
+              d="M82 52 Q88 55 82 58"
+              stroke="#0D47A1"
+              stroke-width="2"
+              fill="none"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- 紫色小鱼 -->
+      <div class="scene fish-scene">
+        <div
+          class="pet-wrap fish-wrap idle swim-left tail-swim"
+          id="fish6Wrap"
+          data-type="fish"
+          data-color="purple"
+        >
+          <div class="bubble" id="fish6Bubble"></div>
+          <svg
+            class="pet-svg"
+            id="fish6Svg"
+            viewBox="0 0 100 100"
+            width="60"
+            height="60"
+          >
+            <ellipse cx="55" cy="50" rx="28" ry="18" fill="#9C27B0" />
+            <ellipse cx="55" cy="50" rx="20" ry="12" fill="#CE93D8" />
+            <g class="fish-tail">
+              <polygon points="25,50 5,35 5,65" fill="#9C27B0" />
+            </g>
+            <polygon points="35,40 45,35 40,45" fill="#6A1B9A" />
+            <polygon points="35,60 45,65 40,55" fill="#6A1B9A" />
+            <circle cx="75" cy="45" r="5" fill="#fff" />
+            <circle cx="76" cy="45" r="3" fill="#000" />
+            <circle cx="77" cy="43" r="1.5" fill="#fff" />
+            <path
+              d="M82 52 Q88 55 82 58"
+              stroke="#4A148C"
+              stroke-width="2"
+              fill="none"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- 粉色小鱼 -->
+      <div class="scene fish-scene">
+        <div
+          class="pet-wrap fish-wrap idle swim-left tail-swim"
+          id="fish7Wrap"
+          data-type="fish"
+          data-color="pink"
+        >
+          <div class="bubble" id="fish7Bubble"></div>
+          <svg
+            class="pet-svg"
+            id="fish7Svg"
+            viewBox="0 0 100 100"
+            width="60"
+            height="60"
+          >
+            <ellipse cx="55" cy="50" rx="28" ry="18" fill="#E91E63" />
+            <ellipse cx="55" cy="50" rx="20" ry="12" fill="#F48FB1" />
+            <g class="fish-tail">
+              <polygon points="25,50 5,35 5,65" fill="#E91E63" />
+            </g>
+            <polygon points="35,40 45,35 40,45" fill="#AD1457" />
+            <polygon points="35,60 45,65 40,55" fill="#AD1457" />
+            <circle cx="75" cy="45" r="5" fill="#fff" />
+            <circle cx="76" cy="45" r="3" fill="#000" />
+            <circle cx="77" cy="43" r="1.5" fill="#fff" />
+            <path
+              d="M82 52 Q88 55 82 58"
+              stroke="#880E4F"
+              stroke-width="2"
+              fill="none"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/app.js" defer></script>
+  </body>
+</html>
